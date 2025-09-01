@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Store</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header class="topbar">
+  <nav>
+    <h1>Products</h1>
+  </nav>
+
+  <div class="toolbar">
+    <div class="controls">
+      <label>
+        Category:
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+        </select>
+      </label>
+
+      <label>
+        Sort by:
+        <select id="sortOption">
+          <option value="priceLow">Price Low → High</option>
+          <option value="priceHigh">Price High → Low</option>
+          <option value="ratingHigh">Rating High → Low</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="summary-buttons">
+      <button id="openWishlist">❤️ Wishlist (<span id="wishlistCount">0</span>)</button>
+      <button id="openCart">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="container">
+    <h2>Product Store</h2>
+
+    <div id="productGrid" class="grid">
+      <!-- Product cards live in HTML (not JS) -->
+      <div class="product"
+           data-name="Smartphone"
+           data-category="Electronics"
+           data-price="500"
+           data-rating="4.5">
+        <img src="images/smartphone.jpg" alt="Smartphone" />
+        <h4>Smartphone</h4>
+        <p>Category: Electronics</p>
+        <p>Price: $500</p>
+        <p>Rating: 4.5</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product"
+           data-name="Laptop"
+           data-category="Electronics"
+           data-price="1200"
+           data-rating="4.7">
+        <img src="images/laptop.jpg" alt="Laptop" />
+        <h4>Laptop</h4>
+        <p>Category: Electronics</p>
+        <p>Price: $1200</p>
+        <p>Rating: 4.7</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product"
+           data-name="T-Shirt"
+           data-category="Clothing"
+           data-price="20"
+           data-rating="4.0">
+        <img src="images/tshirt.jpg" alt="T-Shirt" />
+        <h4>T-Shirt</h4>
+        <p>Category: Clothing</p>
+        <p>Price: $20</p>
+        <p>Rating: 4.0</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product"
+           data-name="Jeans"
+           data-category="Clothing"
+           data-price="40"
+           data-rating="4.3">
+        <img src="images/jeans1.jpg" alt="Jeans" />
+        <h4>Jeans</h4>
+        <p>Category: Clothing</p>
+        <p>Price: $40</p>
+        <p>Rating: 4.3</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product"
+           data-name="Sweater"
+           data-category="Clothing"
+           data-price="30"
+           data-rating="4.1">
+        <img src="images/sweater.jpg" alt="Sweater" />
+        <h4>Sweater</h4>
+        <p>Category: Clothing</p>
+        <p>Price: $30</p>
+        <p>Rating: 4.1</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product"
+           data-name="Headphones"
+           data-category="Electronics"
+           data-price="200"
+           data-rating="4.2">
+        <img src="images/headphones.jpg" alt="Headphones" />
+        <h4>Headphones</h4>
+        <p>Category: Electronics</p>
+        <p>Price: $200</p>
+        <p>Rating: 4.2</p>
+        <div class="actions">
+          <button class="btn-wishlist">❤️ Add to Wishlist</button>
+          <button class="btn-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Wishlist Modal -->
+<dialog id="wishlistModal" class="modal">
+  <div class="modal-header">
+    <h3>❤️ Wishlist</h3>
+    <button class="modal-close" data-close="wishlistModal">✖</button>
+  </div>
+  <div id="wishlistItems" class="modal-list"></div>
+</dialog>
+
+<!-- Cart Modal -->
+<dialog id="cartModal" class="modal">
+  <div class="modal-header">
+    <h3>🛒 Cart</h3>
+    <button class="modal-close" data-close="cartModal">✖</button>
+  </div>
+  <div id="cartItems" class="modal-list"></div>
+  <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+</dialog>
+
+<script src="index.js"></script>
+</body>
+</html>
